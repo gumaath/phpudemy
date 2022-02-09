@@ -22,11 +22,18 @@ require_once("config.php");
 //$usuario->login("gustavo", "abcdef");
 //echo $usuario;
 
-$aluno = new Usuario(); 
-$aluno->setDeslogin('banana');
-$aluno->setDessenha('aluno123');
-$aluno->insert();
+//Criando um novo usuário com construtor e sem
+//$aluno = new Usuario('construtor', 'senha'); 
+//$aluno->setDeslogin('banananormal');
+//$aluno->setDessenha('aluno123');
+//$aluno->insert();
+//echo $aluno;
 
-echo $aluno;
+$usuario = new Usuario();
+$usuario->loadById(8);
+
+$usuario->update("professor", "testeprofessor");
+
+echo $usuario;
 
 ?>
