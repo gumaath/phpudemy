@@ -1,17 +1,17 @@
 <?php 
 
 Class Usuario {
-    private $iduisuario;
+    private $idusuario;
     private $deslogin;
     private $dessenha;
     private $dtcadastro;
 
-    public function setIduisuario($iduisuario) {
-        $this->iduisuario = $iduisuario;
+    public function setIdusuario($idusuario) {
+        $this->idusuario = $idusuario;
     }
 
-    public function getIduisuario() {
-        return $this->iduisuario;
+    public function getIdusuario() {
+        return $this->idusuario;
     }
 
     public function setDeslogin($deslogin) {
@@ -31,7 +31,7 @@ Class Usuario {
     }
 
     public function setDtcadastro($dtcadastro) {
-        $this->dtcadastro = $dtcadastro;
+        $this->dtcadastro = $dtcadastro ;
     }
     
     public function getDtcadastro() {
@@ -77,7 +77,7 @@ Class Usuario {
     }
 
     public function setData($data) {
-        $this->setIduisuario($data['idusuario']);
+        $this->setIdusuario($data['idusuario']);
         $this->setDeslogin($data['deslogin']);
         $this->setDessenha($data['dessenha']);
         $this->setDtcadastro(new DateTime($data['dtcadastro']));
@@ -85,8 +85,8 @@ Class Usuario {
     
     public function insert() {
         $sql = new Sql();
-
-        $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD", array(
+        
+        $results = $sql->select("CALL sp_usuarios_insert(:LOGIN, :PASSWORD)", array(
             ':LOGIN'=>$this->getDeslogin(),
             ':PASSWORD'=>$this->getDessenha()
         ));
@@ -98,7 +98,7 @@ Class Usuario {
 
     public function __toString() {
         return json_encode(array(
-            "idusuario"=>$this->getIduisuario(),
+            "idusuario"=>$this->getIdusuario(),
             "deslogin"=>$this->getDeslogin(),
             "dessenha"=>$this->getDessenha(),
             "dtcadastro"=>$this->getDtcadastro()->format("d/m/Y H:i:s")

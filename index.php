@@ -23,8 +23,8 @@ require_once("config.php");
 //echo $usuario;
 
 $aluno = new Usuario(); 
-$aluno->setDeslogin("aluno");
-$aluno->setDessenha("aluno123");
+$aluno->setDeslogin('banana');
+$aluno->setDessenha('aluno123');
 $aluno->insert();
 
 echo $aluno;
